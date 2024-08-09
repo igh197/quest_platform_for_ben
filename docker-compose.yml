@@ -1,7 +1,7 @@
 services:
   users:
     build:
-      context: ./users
+      context: ./Users
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
@@ -11,7 +11,7 @@ services:
 
   questcatalog:
     build:
-      context: ./questcatalog
+      context: ./QuestCatalog
       dockerfile: Dockerfile
     ports:
       - "5002:5002"
@@ -21,7 +21,7 @@ services:
 
   questprocess:
     build:
-      context: ./questprocess
+      context: ./QuestProcess
       dockerfile: Dockerfile
     ports:
       - "8000:8000"

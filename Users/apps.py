@@ -61,9 +61,9 @@ def login(form_data: UserLogin, db: Session = Depends(get_db),
         raise HTTPException(status_code=401, detail="You are banned")
     user.login_trial += 1
     if user.login_trial ==3 or user.login_trial ==6:
-        requests.post('http://127.0.0.1:8000/quest_checker/%s' % user.user_id)
+        requests.post('http://3.38.213.127:8000/quest_checker/%s' % user.user_id)
     else:
-        requests.post('http://127.0.0.1:8000/quest_checker/%s' % user.user_id,data='not claimed')
+        requests.post('http://3.38.213.127:8000/quest_checker/%s' % user.user_id,data='not claimed')
     db.commit()
     access_token = Authorize.create_access_token(subject=user.user_id)
     return {"access_token": access_token}
